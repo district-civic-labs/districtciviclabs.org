@@ -102,7 +102,9 @@
 
       <script>
       var handler = StripeCheckout.configure({
-        key: 'pk_test_xNRNG2yhQBWXuqNaXyeEMgCo',
+        // Stripe is fine with publishing the *public* API key. There's a separate
+        // secret one that allows for the actual charging of cards and such.
+        key: 'pk_live_HlxBjvxPe5lUTxrzFcDYk1TG',
         image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
         locale: 'auto',
         token: function(token) {

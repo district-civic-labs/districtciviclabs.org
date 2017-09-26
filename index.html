@@ -101,10 +101,23 @@
       </form>
 
       <script>
-      var handler = StripeCheckout.configure({
+      var apiKey;
+      var account;
+
+      if (window.location.hostname === '') {
+        // No hostname means we are working locally and should use test data.
+        apiKey = 'pk_test_xNRNG2yhQBWXuqNaXyeEMgCo';
+        account = 'test';
+      } else {
+        // Use the live key.
         // Stripe is fine with publishing the *public* API key. There's a separate
         // secret one that allows for the actual charging of cards and such.
-        key: 'pk_live_HlxBjvxPe5lUTxrzFcDYk1TG',
+        apiKey = 'pk_live_HlxBjvxPe5lUTxrzFcDYk1TG';
+        account = 'districtciviclabs';
+      }
+
+      var handler = StripeCheckout.configure({
+        key: apiKey,
         image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
         locale: 'auto',
         token: function(token) {
@@ -131,11 +144,10 @@
               "token": token.id,
               "amount": amount,
               "instruction": instruction,
-              "email": token.email
+              "email": token.email,
+              "account": account
             })
-            // "token="+token.id+"&amount="+amount+"&instruction="+instruction+"&email="+token.email
-          );
-          console.log('the end!');
+        );
         }
       });
 

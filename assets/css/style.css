@@ -39,13 +39,16 @@ form {
 	background-image: url('/assets/img/techlady-not-cleared.jpg');
 	background-size: cover;
 	color: white;
+	height:20rem;
 }
 
 .card {
 	background-color: #999;
 	color: white;
-	padding: 2rem;
-	margin: 2rem;
+}
+
+.card-title {
+	padding: .5rem;
 }
 
 .card-body {

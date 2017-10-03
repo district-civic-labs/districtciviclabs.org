@@ -4,6 +4,11 @@
   border-bottom: 1px solid black;
 }
 
+.service.dark {
+	background: #999;
+	color: white;
+}
+
 #donate {
   padding-top: 3rem;
 }
@@ -16,4 +21,34 @@ form {
   border: 1px solid gray;
   border-radius: .5rem;
   padding: 1rem;
+}
+
+
+.logo-nav {
+	background-image: url('/assets/img/logos/logo.png');
+	width: 5rem;
+	background-size: cover;
+	margin: 1rem;
+}
+
+.logo-partner-medium {
+	width: 10rem;
+}
+
+.jumbotron {
+	background-image: url('/assets/img/techlady-not-cleared.jpg');
+	background-size: cover;
+	color: white;
+}
+
+.card {
+	background-color: #999;
+	color: white;
+	padding: 2rem;
+	margin: 2rem;
+}
+
+.card-body {
+	background-color: white;
+	color: black;
 }

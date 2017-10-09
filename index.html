@@ -141,6 +141,8 @@
           $.post("https://b9sq87esw7.execute-api.us-east-2.amazonaws.com/prod/stripe-processor", send, function(data, status){
             if (data.chargeSuccess) {
               $('#donation-form').before('<p class="alert alert-success" role="alert">'+data.message+'</p>')
+            } else {
+              $('#donation-form').before('<p class="alert alert-warning" role="alert">'+data.message+'</p>')
             }
           });
         }

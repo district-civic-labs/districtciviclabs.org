@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8">
   <title>District Civic Labs</title>
+  <link rel="shortcut icon" href="./assets/img/favicon.ico">
   <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="./assets/css/style.css">
-  <script src="https://js.stripe.com/v3/"></script>
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+  <script src="./assets/js/stripe.v3.min.js"></script>
+  <script src="./assets/js/popper.min.js"></script>
+  <script src="./assets/js/jquery-3.2.1.min.js"></script>
+  <script src="./assets/js/bootstrap.min.js"></script>
 </head>
 <body>
   <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#"><img src="./assets/img/logo.png" width="30" height="30"/> District Civic Labs</a>
+      <a class="navbar-brand" href="#"><img src="./assets/img/logo.png" width="30" height="30"/>&nbsp&nbsp&nbspDistrict Civic Labs</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -35,7 +36,7 @@
     <div class="jumbotron jumbotron-fluid">
       <div class="container">
         <!-- TODO: image goes here -->
-        <h1 class="display-4">Civic innovation and equality in D.C.</h1>
+        <h1 class="display-4">Powering civic innovation and equality in D.C.</h1>
       </div>
     </div>
     <section id="services">
@@ -84,9 +85,9 @@
         </div>
       </div>
 
-      <script src="https://checkout.stripe.com/checkout.js"></script>
+      <script src="./assets/js/checkout.js"></script>
 
-      <form>
+      <form id="donation-form">
         <div class="form-group">
           <label for="donation-amount"><strong>Amount</strong></label>
           <div class="input-group">
@@ -131,27 +132,20 @@
           var instruction = document.getElementById('special-instructions').value
           // Send a request to our AWS Lambda function, which handles the
           // secret Stripe stuff.
-          var xhr = new XMLHttpRequest();
-          xhr.open("POST", 'https://b9sq87esw7.execute-api.us-east-2.amazonaws.com/prod/stripe-processor', true);
-          xhr.setRequestHeader("Content-type", "application/json");
-
-          xhr.onreadystatechange = function() {
-            if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
-              console.log(200);
-              // Request finished.
+          let send = JSON.stringify({
+            "token": token.id,
+            "amount": amount,
+            "instruction": instruction,
+            "email": token.email,
+            "account": account
+          });
+          $.post("https://b9sq87esw7.execute-api.us-east-2.amazonaws.com/prod/stripe-processor", send, function(data, status){
+            if (data.chargeSuccess) {
+              $('#donation-form').before('<p class="alert alert-success" id="donation-status" role="alert">'+data.message+'</p>')
             } else {
-              console.log('not 200');
+              $('#donation-form').before('<p class="alert alert-warning" id="donation-status" role="alert">'+data.message+'</p>')
             }
-          }
-          xhr.send(
-            JSON.stringify({
-              "token": token.id,
-              "amount": amount,
-              "instruction": instruction,
-              "email": token.email,
-              "account": account
-            })
-        );
+          });
         }
       });
 
@@ -160,10 +154,13 @@
         handler.open({
           name: 'District Civic Labs',
           description: 'Donation',
+          image: 'https://districtciviclabs.org/assets/img/logo-small.png',
           amount: Number(document.getElementById('donation-amount').value + "00"),
           allowRememberMe: false
         });
         e.preventDefault();
+        // Hide donation status if this isn't the first
+        $('#donation-status').hide(500);
       });
 
       // Close Checkout on page navigation:
@@ -174,14 +171,14 @@
     </section>
     <div class="row footer navbar-light bg-light">
       <div class="col">
-        <p xmlns:dct="http://purl.org/dc/terms/" xmlns:vcard="http://www.w3.org/2001/vcard-rdf/3.0#">
+        <p xmlns:dct="https://purl.org/dc/terms/" xmlns:vcard="https://www.w3.org/2001/vcard-rdf/3.0#">
           <a rel="license"
-             href="http://creativecommons.org/publicdomain/zero/1.0/">
-            <img src="http://i.creativecommons.org/p/zero/1.0/88x31.png" style="border-style: none;" alt="CC0" />
+             href="https://creativecommons.org/publicdomain/zero/1.0/">
+            <img src="https://i.creativecommons.org/p/zero/1.0/88x31.png" style="border-style: none;" alt="CC0" />
           </a>
           <br />
           To the extent possible under law,
-          <a rel="dct:publisher" href="districtciviclabs.org">
+          <a rel="dct:publisher" href="https://districtciviclabs.org">
             <span property="dct:title">District Civic Labs</span>
           </a>
           has waived all copyright and related or neighboring rights to

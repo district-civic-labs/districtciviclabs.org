@@ -1,0 +1,17 @@
+name: District Civic Labs
+description: >-
+  We are a tax-exempt 501(c)(3) non-profit that provides shared services, community and
+  training, and fiscal sponsorship to organizations that power civic innovation and
+  equality in Washington, DC.
+url: "https://districtciviclabs.org"
+baseurl: ''
+
+google_analytics_ua:
+
+# Build settings
+markdown: kramdown
+
+collections:
+  pages:
+    output: true
+    permalink: /:path/

@@ -22,7 +22,7 @@
 var apiKey;
 var account;
 if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-  // No hostname means we are working locally and should use test data.
+  // Check if we are working locally and should use test data.
   apiKey = 'pk_test_xNRNG2yhQBWXuqNaXyeEMgCo';
   account = 'test';
 } else {

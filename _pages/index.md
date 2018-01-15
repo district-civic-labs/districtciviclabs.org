@@ -1,6 +1,5 @@
 ---
 layout: default
-title: ''
 hide_site_name: true
 splash: home-splash.html
 permalink: /

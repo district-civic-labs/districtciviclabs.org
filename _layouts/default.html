@@ -4,26 +4,26 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>
-      {% if page.title == '' %}
-        {{ site.name }}
-      {% else %}
+      {% if page.title %}
         {{ page.title }} | {{ site.name }}
+      {% else %}
+        {{ site.name }}
       {% endif %}
     </title>
     <meta name="description" content="{{ site.description }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="manifest" href="site.webmanifest">
+    <link rel="manifest" href="/site.webmanifest">
     <link rel="apple-touch-icon" href="/assets/img/icon.png">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i,900">
     <link rel="stylesheet" href="/assets/css/style.css">
   </head>
   <body>
-    <div class="top {% if layout.hide_site_name %} no-site-name {% endif %}">
+    <div class="top {% if page.hide_site_name %} no-site-name {% endif %}">
       <header>
         <div class="container">
-          {% if layout.hide_site_name != true %}
+          {% if page.hide_site_name != true %}
             <a class="site-name" href="/">
               <img class="logo" src="/assets/img/logo.svg" alt="logo" width=54 height=56>
               <h1>{{ site.name }}</h1>
@@ -39,8 +39,8 @@
         </div>
       </header>
 
-      {% if layout.splash %}
-        {% include {{ layout.splash }} %}
+      {% if page.splash %}
+        {% include {{ page.splash }} %}
       {% endif %}
     </div>
 

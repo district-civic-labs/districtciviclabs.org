@@ -20,10 +20,10 @@
     <link rel="stylesheet" href="/assets/css/style.css">
   </head>
   <body>
-    <div class="top {% if layout.hide_site_name %} no-site-name {% endif %}">
+    <div class="top {% if page.hide_site_name %} no-site-name {% endif %}">
       <header>
         <div class="container">
-          {% if layout.hide_site_name != true %}
+          {% if page.hide_site_name != true %}
             <a class="site-name" href="/">
               <img class="logo" src="/assets/img/logo.svg" alt="logo" width=54 height=56>
               <h1>{{ site.name }}</h1>

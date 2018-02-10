@@ -11,3 +11,7 @@ We are a tax-exempt 501(c)(3) non-profit, and our programs are entirely supporte
 Help us keep this all going by making a donation of any size---it all helps!
 
 {% include donation-form.html %}
+
+## Sponsored Organizations
+
+{% include sponsored-organizations.html %}

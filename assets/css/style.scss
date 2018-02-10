@@ -130,6 +130,20 @@ footer {
   }
 }
 
+.org {
+  background-size: cover;
+  background-position: center;
+  max-width: 40em;
+
+  h3 {
+    font-size: 3rem;
+    color: white;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+    text-align: center;
+    padding: 10px 0 10px 0;
+  }
+}
+
 .splash {
   margin: 0 auto;
   max-width: 24rem;

@@ -131,18 +131,18 @@ footer {
 }
 
 .org {
-  background-size: cover;
-  background-position: center;
+  background: $background-color;
+  background: radial-gradient(ellipse at center, $background-highlight-color 0%, $background-highlight-midway-color 50%, $background-color 75%) no-repeat fixed;
   max-width: 40em;
 
   a {
     text-decoration: none;
   }
 
-  h3 {
-    font-size: 3rem;
+  p {
+    font-size: 2.827rem;
+    font-style: italic;
     color: white;
-    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
     text-align: center;
     padding: 10px 0 10px 0;
   }

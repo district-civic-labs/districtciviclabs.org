@@ -1,5 +1,5 @@
 {% for org in site.data.orgs %}
 <div class="org" style="background-image: url({{ org.image }})">
-  <h3>{{ org.name }}</h3>
+  <a href="{{ org.site }}"><h3>{{ org.name }}</h3></a>  
 </div>
 {% endfor %}

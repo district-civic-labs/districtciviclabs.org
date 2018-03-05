@@ -6,11 +6,11 @@ jobs:
     steps:
       - checkout
       - run:
-        name: Install dependencies
-        command: bundle install
+          name: Install dependencies
+          command: bundle install
       - run:
-        name: Build site
-        command: bundle exec jekyll build
+          name: Build site
+          command: bundle exec jekyll build
       - run:
-        name: Test with htmlproofer
-        command: bundle exec htmlproofer ./_site --allow-hash-href --check-html --disable-external --enforce-https
+          name: Test with htmlproofer
+          command: bundle exec htmlproofer ./_site --allow-hash-href --check-html --disable-external --enforce-https

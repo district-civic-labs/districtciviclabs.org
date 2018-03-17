@@ -25,29 +25,6 @@ body {
   color: #fff;
 }
 
-h1 {
-  font-size: 1.414rem;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.125em;
-}
-
-h2 {
-  color: #CD0738;
-  font-size: 2.827rem;
-  font-weight: 800;
-  margin: 0;
-  line-height: 1;
-}
-
-h3 {
-  font-size: 1.414rem;
-  font-style: italic;
-  text-transform: uppercase;
-  line-height: 1;
-  margin: 2.827rem 0 0 0;
-}
-
 a {
   color: #CD0738;
 }
@@ -71,6 +48,10 @@ header {
   h1 {
     display: inline-block;
     margin: 0.941rem 0 0 0.824rem;
+    font-size: 1.414rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.125em;
   }
 }
 
@@ -131,6 +112,42 @@ footer {
   padding: 1px 0;
 }
 
+#donate {
+  color: #CD0738;
+  font-size: 2.827rem;
+  font-weight: 800;
+  margin: 0;
+  line-height: 1;
+}
+
+#what-we-do {
+  h2 {
+    font-size: 1.414rem;
+    font-style: italic;
+    text-transform: uppercase;
+    line-height: 1;
+    margin: 2.827rem 0 0 0;
+  }
+}
+
+.org {
+  background: $background-color;
+  background: radial-gradient(ellipse at center, $background-highlight-color 0%, $background-highlight-midway-color 50%, $background-color 75%) no-repeat fixed;
+  max-width: 40em;
+
+  a {
+    text-decoration: none;
+  }
+
+  p {
+    font-size: 2.827rem;
+    font-style: italic;
+    color: white;
+    text-align: center;
+    padding: 10px 0 10px 0;
+  }
+}
+
 .splash {
   margin: 0 auto;
   max-width: 24rem;
@@ -161,6 +178,10 @@ footer {
   h1 span {
     display: block;
     line-height: 1;
+    font-size: 1.414rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.125em;
     &.l1 {
       font-size: 1.294rem;
       font-weight: 800;
@@ -198,7 +219,7 @@ footer {
 }
 
 @media only screen and (min-width: 50rem) {
-  .splash section h3 {
+  .splash section h2 {
     position: relative;
     right: 12rem;
     text-align: right;

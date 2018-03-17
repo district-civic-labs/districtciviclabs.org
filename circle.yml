@@ -1,0 +1,16 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.4-node-browsers
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: bundle install
+      - run:
+          name: Build site
+          command: bundle exec jekyll build
+      - run:
+          name: Test with htmlproofer
+          command: bundle exec htmlproofer ./_site --allow-hash-href --check-html --disable-external --enforce-https

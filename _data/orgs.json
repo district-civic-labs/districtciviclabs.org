@@ -8,5 +8,10 @@
     "name": "Tech Lady Hackathon",
     "site": "https://techladyhackathon.org",
     "image": "https://raw.githubusercontent.com/TechLadyHackathon/TLHwebsite/master/images/hackathon5.jpg"
+  },
+  {
+    "name": "DCFemTech",
+    "site": "https://dcfemtech.com",
+    "image": "https://raw.githubusercontent.com/dcfemtech/dcfemtech.github.io/master/assets/misc/dcft-icon-light.png"
   }
 ]

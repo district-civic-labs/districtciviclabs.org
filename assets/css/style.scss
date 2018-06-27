@@ -134,6 +134,7 @@ footer {
   background: $background-color;
   background: radial-gradient(ellipse at center, $background-highlight-color 0%, $background-highlight-midway-color 50%, $background-color 75%) no-repeat fixed;
   max-width: 40em;
+  transform: skewX(-10deg);
 
   a {
     text-decoration: none;
@@ -145,6 +146,7 @@ footer {
     color: white;
     text-align: center;
     padding: 10px 0 10px 0;
+    transform: skewX(10deg);
   }
 }
 

@@ -2,7 +2,7 @@
   <div class="form-group">
     <label for="donation-amount"><strong>Amount</strong></label>
     <div class="input-group">
-      <input type="number" id="donation-amount" class="form-control" value="25" aria-label="Amount (to the nearest dollar)">
+      <input type="number" id="donation-amount" class="form-control" value="25" aria-label="Amount">
       <span class="input-group-addon" id="basic-addon1">$</span>
     </div>
   </div>
@@ -27,7 +27,27 @@
 <script>
 var apiKey;
 var account;
-var amount;
+var donationAmount = document.getElementById('donation-amount');
+// This looks sketchy, but it's a conversion from dollars to cents because that's
+// what Stripe expects to receive. For example, $25.00 is sent as 2500.
+var amount = Number(donationAmount.value) * 100;
+
+var updateAmount = function(){
+  amount = Number(donationAmount.value);
+  if (document.getElementById('cover-fees').checked) {
+    amount = (amount * 1.022) + 0.30;
+  }
+  // Round to two decimal places
+  amount = Math.round((amount + 0.00001) * 100) / 100;
+  // Back to cents
+  amount = amount * 100
+  document.getElementById('donationButton').textContent = "Make $"+(amount/100)+" donation";
+}
+
+donationAmount.addEventListener('keyup', updateAmount);
+document.getElementById('cover-fees').addEventListener('click', updateAmount);
+updateAmount();
+
 if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
   // Check if we are working locally and should use test data.
   apiKey = 'pk_test_xNRNG2yhQBWXuqNaXyeEMgCo';
@@ -39,6 +59,7 @@ if (window.location.hostname === 'localhost' || window.location.hostname === '12
   apiKey = 'pk_live_HlxBjvxPe5lUTxrzFcDYk1TG';
   account = 'districtciviclabs';
 }
+
 var handler = StripeCheckout.configure({
   key: apiKey,
   image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
@@ -66,11 +87,8 @@ var handler = StripeCheckout.configure({
     });
   }
 });
+
 document.getElementById('donationButton').addEventListener('click', function(e) {
-  amount = Number(document.getElementById('donation-amount').value + "00");
-  if (document.getElementById('cover-fees').checked) {
-    amount = (amount * 1.022) + 30;
-  }
   // Open Checkout with further options:
   handler.open({
     name: 'District Civic Labs',
@@ -83,6 +101,7 @@ document.getElementById('donationButton').addEventListener('click', function(e) 
   // Hide donation status if this isn't the first
   $('#donation-status').hide(500);
 });
+
 // Close Checkout on page navigation:
 window.addEventListener('popstate', function() {
   handler.close();

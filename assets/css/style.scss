@@ -328,3 +328,45 @@ footer {
     border-color: #DD1144;
   }
 }
+
+// Styles for document layout
+
+.doc-logo-img {
+  float: left;
+  width: 100px;
+  height: 100px;
+}
+
+.doc-logo-name {
+  float: right;
+  // position: relative;
+  top: 18px;
+  left: 10px;
+}
+
+
+.doc-toc {
+  visibility: hidden;
+  position: absolute;
+
+  @media only screen and (min-width: 45rem) {
+    position: unset;
+    visibility: visible;
+    float: left;
+    width: 25vw;
+  }
+
+  @media only screen and (min-width: 70rem) {
+    float: left;
+    width: 20vw;
+  }
+}
+
+.doc-content {
+  @media only screen and (min-width: 45rem) {
+    margin-left: 30vw;
+  }
+  @media only screen and (min-width: 70rem) {
+    margin-left: 25vw;
+  }
+}

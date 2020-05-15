@@ -15,3 +15,6 @@ collections:
   pages:
     output: true
     permalink: /:path/
+  documents:
+    output: true
+    permalink: /docs/:path/

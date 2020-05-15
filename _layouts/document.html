@@ -1,0 +1,13 @@
+---
+layout: default
+
+#TODO: check print styling
+---
+
+<div class="doc-toc">
+  {% include toc.html html=content %}
+</div>
+<div class="doc-content">
+  <h1 class="no_toc">{{ page.title }}</h1>
+  {{ content }}
+</div>

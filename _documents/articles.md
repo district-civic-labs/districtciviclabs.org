@@ -1,6 +1,7 @@
 ---
 layout: document
 title: ARTICLES OF INCORPORATION for DISTRICT CIVIC LABS
+type: corporate
 ---
 
 ## ARTICLE I: NAME

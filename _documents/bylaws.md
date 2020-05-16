@@ -1,6 +1,7 @@
 ---
 layout: document
 title: BYLAWS for DISTRICT CIVIC LABS
+type: corporate
 ---
 
 ## ARTICLE I - Name and Location

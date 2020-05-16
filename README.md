@@ -8,7 +8,7 @@ This is our site.
 
 ## Getting started
 
-You'll need to [install Ruby](https://www.ruby-lang.org/en/documentation/installation/) if you haven't already.
+You'll need to [install Ruby](https://www.ruby-lang.org/en/documentation/installation/) if you haven't already. Check the `.ruby-version` file to see which one we're using.
 
 Install the dependencies:
 
@@ -20,7 +20,7 @@ bundle install
 Run Jekyll:
 
 ```
-bundle exec jekyll serve --watch
+bundle exec jekyll serve
 ```
 
 Open it up in your browser: <http://localhost:4000/>

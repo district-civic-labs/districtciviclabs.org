@@ -8,7 +8,7 @@ This is our site.
 
 ## Getting started
 
-You'll need to [install Ruby](https://www.ruby-lang.org/en/documentation/installation/) if you haven't already. Check the `.ruby-version` file to see which one we're using.
+You'll need to [install Ruby](https://www.ruby-lang.org/en/documentation/installation/) if you haven't already. Check the [`.ruby-version`](/.ruby-version) file to see which one we're using.
 
 Install the dependencies:
 

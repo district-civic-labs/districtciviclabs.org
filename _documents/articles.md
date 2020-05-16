@@ -1,8 +1,7 @@
 ---
-layout: default
+layout: document
+title: ARTICLES OF INCORPORATION for DISTRICT CIVIC LABS
 ---
-
-# ARTICLES OF INCORPORATION for DISTRICT CIVIC LABS
 
 ## ARTICLE I: NAME
 The name of the corporation is District Civic Labs.

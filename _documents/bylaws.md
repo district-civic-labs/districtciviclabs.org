@@ -1,8 +1,7 @@
 ---
-layout: default
+layout: document
+title: BYLAWS for DISTRICT CIVIC LABS
 ---
-
-# BYLAWS for DISTRICT CIVIC LABS
 
 ## ARTICLE I - Name and Location
 ### Section 1 - Name

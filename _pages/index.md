@@ -18,4 +18,4 @@ Through fiscal sponsorship, these organizations share in our 501(c)(3) status, s
 
 {% include sponsored-organizations.html %}
 
-If you're interested in fiscal sponsorship for your own project or organization, [contact us](mailto:team@districtciviclabs.org)! We're interested in sponsorship opportunities that align with the purposes described in our [articles of incorporation](/articles).
+If you're interested in fiscal sponsorship for your own project or organization, [contact us](mailto:team@districtciviclabs.org)! We're interested in sponsorship opportunities that align with the purposes described in our [articles of incorporation](/docs/articles).

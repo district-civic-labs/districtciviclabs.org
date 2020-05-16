@@ -90,11 +90,16 @@ nav {
 .container {
   margin: 0 auto;
   padding: 0 1.414rem;
-  max-width: 55rem;
+  max-width: 40rem;
   &:after {
     content: "";
     display: table;
     clear: both;
+  }
+
+  @media only screen and (min-width: 45rem) {
+    margin: 0 20% 0 20% ;
+    max-width: 70%;
   }
 }
 
